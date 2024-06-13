@@ -153,6 +153,12 @@ Then you can verify the registered service:
 [time-service]
 ```
 
+Finally, you can open a browser and search:
+
+```
+localhost:8080/time
+```
+
 ## Resources
 
 - https://zookeeper.apache.org/
