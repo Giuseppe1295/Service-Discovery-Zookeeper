@@ -2,22 +2,21 @@
 
 ## Apache Zookeeper
 
-ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and offering group services. These services are essential for distributed applications, but their implementation is often complex, leading to bugs and management difficulties. As a result, applications usually implement them poorly, making them fragile and hard to manage. Different implementations further complicate management when applications are deployed.
+ZooKeeper is a centralized service and its purpose is maintaining configuration information, naming, providing distributed synchronization, and offering group services. These services are essential for distributed applications, but their implementation is often complex, leading to bugs and management difficulties. As a result, applications usually implement them poorly, making them fragile and hard to manage. Different implementations further complicate management when applications are deployed.
 
 ZooKeeper simplifies these services by providing a very simple interface to a centralized coordination service that is both distributed and highly reliable.
 
 ## Apache Zookeeper in Spring Cloud
 
-Spring Cloud Zookeeper integrates Apache Zookeeper with Spring Boot applications through autoconfiguration and binding to the Spring Environment. With a few simple annotations, you can quickly enable and configure common patterns like Service Discovery and Distributed Configuration, facilitating the creation of large distributed systems.
+Spring Cloud Zookeeper integrates Apache Zookeeper with Spring Boot applications through autoconfiguration and binding to the Spring Environment. With a few simple annotations, you can quickly enable and configure common patterns as Service Discovery and Distributed Configuration, facilitating the creation of large distributed systems.
 
 ## Apache Zookeeper Service Discovery
 
-Service Discovery is crucial in microservice architectures. Manually configuring each client or using conventions can be complex and fragile. Curator, a Java library for Zookeeper, offers Service Discovery via an extension. Spring Cloud Zookeeper utilizes this extension for service registration and discovery.
+Service Discovery is crucial in microservice architectures. Manually configuring each client or using conventions can be complex and fragile. Curator, a Java library for Zookeeper, offers Service Discovery via an extension. Spring Cloud Zookeeper uses this extension for service registration and discovery.
 
 ### Apache Zookeeper services
 
-By adding the dependency org.springframework.cloud
-, you enable an automatic configuration that establishes Spring Cloud Zookeeper Discovery.
+By adding the dependency org.springframework.cloud, you enable an automatic configuration that establishes Spring Cloud Zookeeper Discovery.
 
 #### Maven dependencies
 
