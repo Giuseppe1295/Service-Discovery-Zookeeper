@@ -92,7 +92,19 @@ spring.cloud.zookeeper.discovery.root=/services
 
 ### Docker configuration
 
-To containerize the service add a Dockerfile.
+To containerize the service add a Dockerfile and a docker-compose file.
+
+#### Dockerfile
+
+```
+FROM openjdk:21-jdk
+WORKDIR /app
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} application.jar
+ENTRYPOINT ["java", "-Dspring.profiles.active=docker", "-jar", "application.jar"]
+```
+
+#### docker-compose file
 
 ```
   zookeeper:
