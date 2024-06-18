@@ -100,7 +100,7 @@ service configuration file:
 * spring.cloud.zookeeper.discovery.root=/services: Services are registered in Zookeeper under the path /services.
 * spring.cloud.zookeeper.config.enabled=true: Enables centralized configuration via Zookeeper.
 * spring.cloud.zookeeper.config.root=/config: Configurations are stored in Zookeeper under the path /config.
-* spring.config.import=optional:zookeeper: This indicates that if If the specified source (in this case, ZooKeeper) is not available or cannot be reached, the application will not fail and will continue to use the local or default configurations.
+* spring.config.import=optional:zookeeper: This indicates that if the specified source (in this case, ZooKeeper) is not available or cannot be reached, the application will not fail and will continue to use the local or default configurations.
 
 ```
 server.port=8080
@@ -128,7 +128,7 @@ service configuration file:
 * spring.cloud.zookeeper.discovery.root=/services: Services are registered in Zookeeper under the path /services.
 * spring.cloud.zookeeper.config.enabled=true: Enables centralized configuration via Zookeeper.
 * spring.cloud.zookeeper.config.root=/config: Configurations are stored in Zookeeper under the path /config.
-* spring.config.import=optional:zookeeper: This indicates that if If the specified source (in this case, ZooKeeper) is not available or cannot be reached, the application will not fail and will continue to use the local or default configurations.
+* spring.config.import=optional:zookeeper: This indicates that if the specified source (in this case, ZooKeeper) is not available or cannot be reached, the application will not fail and will continue to use the local or default configurations.
 
 ```
 server.port=8080
