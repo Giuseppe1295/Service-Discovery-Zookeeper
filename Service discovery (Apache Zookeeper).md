@@ -4,7 +4,7 @@ Service Discovery is crucial in microservice architectures. Manually configuring
 
 ## Apache Zookeeper services
 
-By adding the dependency org.springframework.cloud, you enable an automatic configuration that establishes Spring Cloud Zookeeper Discovery.
+By adding the dependency org.springframework.cloud:spring-cloud-starter-zookeeper-discovery, you enable an automatic configuration that establishes Spring Cloud Zookeeper Discovery.
 
 ### Maven dependencies
 
