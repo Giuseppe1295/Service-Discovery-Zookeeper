@@ -1,24 +1,12 @@
-# Service Discovery
-
-## Apache Zookeeper
-
-ZooKeeper is a centralized service and its purpose is maintaining configuration information, naming, providing distributed synchronization, and offering group services. These services are essential for distributed applications, but their implementation is often complex, leading to bugs and management difficulties. As a result, applications usually implement them poorly, making them fragile and hard to manage. Different implementations further complicate management when applications are deployed.
-
-ZooKeeper simplifies these services by providing a very simple interface to a centralized coordination service that is both distributed and highly reliable.
-
-## Apache Zookeeper in Spring Cloud
-
-Spring Cloud Zookeeper integrates Apache Zookeeper with Spring Boot applications through autoconfiguration and binding to the Spring Environment. With a few simple annotations, you can quickly enable and configure common patterns as Service Discovery and Distributed Configuration, facilitating the creation of large distributed systems.
-
-## Apache Zookeeper Service Discovery
+# Apache Zookeeper Service Discovery
 
 Service Discovery is crucial in microservice architectures. Manually configuring each client or using conventions can be complex and fragile. Curator, a Java library for Zookeeper, offers Service Discovery via an extension. Spring Cloud Zookeeper uses this extension for service registration and discovery.
 
-### Apache Zookeeper services
+## Apache Zookeeper services
 
 By adding the dependency org.springframework.cloud, you enable an automatic configuration that establishes Spring Cloud Zookeeper Discovery.
 
-#### Maven dependencies
+### Maven dependencies
 
 ```
     <properties>
@@ -52,7 +40,7 @@ By adding the dependency org.springframework.cloud, you enable an automatic conf
         </dependencyManagement>
 ```
 
-#### Service code
+### Service code
 
 In a Java Spring Boot application using Zookeeper, the @EnableDiscoveryClient annotation enables service registration and discovery. It allows the application to automatically register itself with Zookeeper as a service and discover other services that are registered in the same distributed environment.
 
@@ -82,7 +70,7 @@ public class TimeController {
 }
 ```
 
-#### configuration
+### configuration
 
 service configuration file:
 
@@ -102,7 +90,7 @@ spring.cloud.zookeeper.discovery.enabled=true
 spring.cloud.zookeeper.discovery.root=/services
 ```
 
-#### Docker configuration
+### Docker configuration
 
 To containerize the service add a Dockerfile.
 
@@ -134,7 +122,7 @@ mvn clean package
 docker-compose up --build
 ```
 
-### Test
+## Test
 
 Make sure you have ZooKeeper installed and running on your system. You can download ZooKeeper from the official website and follow the installation instructions.
 
@@ -159,7 +147,7 @@ Finally, you can open a browser and search:
 localhost:8080/time
 ```
 
-## Resources
+# Resources
 
 - https://zookeeper.apache.org/
 - https://cwiki.apache.org/confluence/display/ZOOKEEPER/Index
