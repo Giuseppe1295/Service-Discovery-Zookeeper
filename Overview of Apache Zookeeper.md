@@ -46,11 +46,10 @@ Each namespace node is called a Znode and can store data and have children. Znod
 
 ## Types of Znodes
 
-**Persistence**: Alive until they’re explicitly deleted.
-
-**Ephemeral**: Active until the client connection is alive.
-
-**Sequential**: Either persistent or ephemeral.
+A Znode can be:
+- **Persistence**: Alive until they’re explicitly deleted.
+- **Ephemeral**: Active until the client connection is alive.
+- **Sequential**: Either persistent or ephemeral.
 
 ## Updates
 
