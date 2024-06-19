@@ -36,7 +36,7 @@ The servers that make up the ZooKeeper service must know about each other: they 
 
 **ZooKeeper is fast**. It is especially fast in "read-dominant" workloads. ZooKeeper's applications run on thousands of machines, and its performance is best when reads are more frequent than writes.
 
-## Data model (guarda anche gfg architecture of zookeeper e data model)
+## Data model
 
 In Zookeeper, data are stored in a hierarchical namespace, similar to that of a file system: a name is a sequence of path elements separated by a slash (/); in addition, each node in the ZooKeeper namespace is identified by a path.
 
