@@ -219,6 +219,33 @@ Verify that the configuration has been set correctly:
 get /config/time-service/configuration
 ```
 
+**Note**: in this example we have manually configured our service via zkCli. It is possible to automate the configuration by, for example, creating a Java script using the [Zookeeper API](Overview%20of%20Apache%20Zookeeper.md#api).
+
+For example, if we want to create a zkNode, set a value and read it, we can use the Zookeeper API like this:
+```
+import org.apache.zookeeper.ZooKeeper;
+import org.apache.zookeeper.CreateMode;
+import org.apache.zookeeper.ZooDefs.Ids;
+
+public class ZookeeperConfig {
+
+    ...
+    
+    if (zk.exists(path, false) == null) {
+                zk.create(path, data, Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+            } else {
+                zk.setData(path, data, zk.exists(path, false).getVersion());
+            }
+    
+            // Leggere il nodo per verificare
+            byte[] readData = zk.getData(path, false, null);
+            
+    
+    ...
+
+}
+```
+
 ## Run the project
 
 Once everything in set up, we can run the example project with:
