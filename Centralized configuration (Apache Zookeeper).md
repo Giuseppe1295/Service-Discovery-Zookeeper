@@ -237,7 +237,6 @@ public class ZookeeperConfig {
                 zk.setData(path, data, zk.exists(path, false).getVersion());
             }
     
-            // Leggere il nodo per verificare
             byte[] readData = zk.getData(path, false, null);
             
     
