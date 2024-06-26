@@ -70,7 +70,7 @@ Zookeeper providing a very simple programming interface. As a result, it support
 
 With the exception of the request processor, each server that makes up the Zookeeper service replicates its own copy of each of the components.
 
-![](/images/implementationAndComponents.jpg)
+![](/images/zookeeper_ensemble.jpg)
 
 The replicated database is an in-memory database that contains the entire data tree. Updates are recorded to disk to ensure retrievability, and writes are serialized to disk before being applied to the in-memory database.
 
@@ -82,6 +82,8 @@ The messaging layer takes care of replacing the leaders in case of failure and s
 
 ZooKeeper uses an atomic messaging protocol. This ensures that, in Zookeeper, local replicas never diverge: when the leader receives a write request, it calculates what the state of the system is when the write is to be applied and turns it into a transaction that captures this new state.
 
+**Note**: This link explains in detail the synchronization implemented by the atomic broadcast: https://zookeeper.apache.org/doc/r3.1.2/zookeeperInternals.html#sc_atomicBroadcast
+
 To conclude, components in Zookeeper are:
 - **Leader and Follower**
 - **Request Processor**: active in the leader node, it is responsible for processing write requests. After processing, it sends the changes to the follower nodes. 
@@ -89,21 +91,19 @@ To conclude, components in Zookeeper are:
 - **In-memory databases (replicated databases)**: It is responsible for storing data in the zookeeper. Each node contains its own databases. Data is also written to the file system to ensure recoverability in case of problems with the cluster. 
 - **Client**: one of the nodes in the distributed application cluster. It accesses information from the server. Each client sends a message to the server to let the server know that the client is alive. 
 - **Server**: provides all services to the client. Provides an acknowledgement to the client. 
-- **Ensemble**: group of Zookeeper servers. The minimum number of nodes required to form an ensemble is 3 to ensure high availability and fault tolerance. Finally, ZooKeeper uses a quorum-based consensus algorithm, which means that for any write or edit operation, the majority of servers in the cluster must agree.
+- **Ensemble**: group of Zookeeper servers. To ensure high availability and fault tolerance, the minimum number of nodes required to form an ensemble is 3. But, for a simple application, we can use only one node. Finally, ZooKeeper uses a quorum-based consensus algorithm, which means that for any write or edit operation, the majority of servers in the cluster must agree.
 
 # Spring cloud Zookeeper
 
 Spring Cloud Zookeeper integrates Apache Zookeeper with Spring Boot applications through autoconfiguration and binding to the Spring Environment and other Spring programming model idioms. By using a few simple annotations, you can quickly enable and configure common patterns within your application, allowing you to build large distributed systems with Zookeeper. The provided patterns include Service Discovery and Distributed Configuration.
 
 Features:
-- **Service Discovery**: instances can be registered with Zookeeper and clients can discover the instances using Spring-managed beans 
-- **Supports Spring Cloud LoadBalancer**: client-side load-balancing solution 
-- **Supports Spring Cloud OpenFeign**
-- **Distributed Configuration**: using Zookeeper as a data store
-
-In this repository we explore:
-- [Service discovery](Service%20discovery%20(Apache%20Zookeeper).md)
-- [Configuration](Centralized%20configuration%20(Apache%20Zookeeper).md)
+- In this repository we explore:
+   - [**Service Discovery**](Service%20discovery%20(Apache%20Zookeeper).md): instances can be registered with Zookeeper and clients can discover the instances using Spring-managed beans
+   - [**Configuration**](Centralized%20configuration%20(Apache%20Zookeeper).md): using Zookeeper as a data store
+- to explore:
+  - **Supports Spring Cloud LoadBalancer**: client-side load-balancing solution
+  - **Supports Spring Cloud OpenFeign**
 
 # Resources
 
